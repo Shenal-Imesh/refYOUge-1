@@ -1,0 +1,21 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div style="width: 40%; margin: auto; padding: 180px">
+    <a href="/"><img width="60%" src="static/assets/refyouge.png"><strong></strong>
+    </a>
+    <h2 style="padding-bottom: 10px">Login</h2>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <p>{{ message }}</p>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
+    <a href="register">Not registered? Create an account</a>
+</div>
+{% endblock %}
